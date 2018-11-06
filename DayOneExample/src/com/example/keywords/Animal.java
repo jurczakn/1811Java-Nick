@@ -6,10 +6,20 @@ public class Animal {
 	public int speed; // getters/setters are public
 	private int numberOfLegs;
 
+	// what is a constructor?
+	// they return an instance of a class.
+	// do not have a return type
+	// if no constructor is explicitly provided, the JVM provides a no-argument
+	// constructor by default
+	// first line in any constructor is either this() or super()
+
+	public Animal() {
+	}
+
 	// getters -> accessors
 	// setters -> mutators
 	// process of encapsulation
-	
+
 	public String getName() {
 		return name;
 	}
@@ -58,5 +68,14 @@ public class Animal {
 	// object will be.
 
 	// Animal a = null; // only initialized, not instantiating
+
+	// casting?
+	// taking an object of one particular type and turning it
+	// into another object type
+
+	// upcasting - cast a subtype to a supertype,
+					//upward the inheritance tree
+	// downcasting - casting to a subtype, 
+					//downward the inheritance tree 
 
 }
