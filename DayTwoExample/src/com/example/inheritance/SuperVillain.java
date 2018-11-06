@@ -17,7 +17,15 @@ public class SuperVillain extends SuperHero {
 	// use inheritance, if we inherit from a class -> "extends"
 	// if we inherit from an interface -> "implements"
 	
-	String alias="Bacon Pancake";
+	String alias="Bacon Pancake"; // shadowing
+	
+	// refers to the practice of using two variables with the
+	// same name within scopes that overlap.
+	// when you do that, the variable with the higher scope
+	// is hidden because the variable with the lower scope
+	// "shadows" it
+	// from within the class itself super.something and cast it
+	// to the parent class
 	
 	public SuperVillain() {
 		super("give it a string");
