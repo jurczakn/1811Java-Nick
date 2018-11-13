@@ -1,0 +1,170 @@
+--comment--
+
+
+--Creating a table--
+CREATE TABLE User(
+  uid int,
+  firstname varchar(80),
+  lastname varchar(80),
+  dob date
+);
+
+--insert values/rows--
+INSERT INTO User VALUES(1, 'Tim', 'Tysonh', '1922-10-14');
+INSERT INTO User (uid, firstname, lastname, dob) VALUES (1, 'Tim', 'Tysonh', '1922-10-14');
+
+--drop a table--
+DROP TABLE User;
+
+--select everything from table User--
+SELECT * FROM User;
+-- * -> wildcard, means "everything"--
+
+--i want to select only those records--
+--that have a user id of 1--
+SELECT * FROM User WHERE uid=1;
+--WHERE -> filter by a specified parameter
+
+--select all from User and order the--
+--info by last name--
+SELECT * FROM User ORDER BY lastname;
+--defaults to ascending order-- (DESC)
+
+--create a table with constraints--
+CREATE TABLE Account(
+  aid integer PRIMARY KEY,
+  type varchar NOT NULL,
+  amount numeric NOT NULL CHECK (amount>0),
+  owner varchar UNIQUE
+);
+--the order of constraints does not matter--
+
+--define a unique constraint for a group of columns--
+CREATE TABLE example(
+  a integer,
+  b integer,
+  c integer,
+  UNIQUE(a,c)
+);
+
+--have two tables linked together with a foreign key--
+CREATE TABLE Account(
+  aid integer PRIMARY KEY,
+  type varchar NOT NULL,
+  FOREIGN KEY uid integer REFERENCES User
+);
+
+--data types--
+--numeric types--
+--name--  --storage size--
+smallint  2 bytes   small-range integer -32768 to +32767
+integer   4 bytes   typical choice for integer
+bigint    8 bytes   large-range integer -9223372036854775808 to +9223372036854775807
+decimal   variable
+numeric   variable  user-speficied precision, exact
+real      4 bytes   6 decimal digits precision
+double precision  8 bytes   15 decimal digits precise
+smallserial       2 bytes   small autoincrementing integer
+serial            4 bytes   autoincrementing integer
+bigserial         8 bytes   large autoincrementing integer
+
+
+CREATE TABLE tablename(
+  columnname SERIAL
+);
+
+
+--Monetary types--
+money   8 bytes   currency amount
+
+--Character types--
+character varying(n), varchar(n)  variable-length with limit
+character(n), char(n)             fixed-length
+text                              variable unlimited length
+
+--Binary Data Types--
+bytea   1 or 4 bytes plus the actual binary string    variable-length binary string
+
+--Date/Time types--
+timestamp with time zone      current time when run
+timestamp without time zone
+date                          date(no time of day)
+time with time zone
+time without time zone    time of day (no date)
+
+--Boolean Type--
+boolean   state of true or false
+
+--Enumerated Types--
+enum types are data types that comprise
+a static, ordered set of values.
+an example of an enum type would be
+the days of the week, or
+a set of status values for a piece of data.
+
+CREATE TYPE mood AS ENUM ('sleepy', 'sad', 'disappointed', 'happy', 'meh');
+
+CREATE TABLE person(
+  name text,
+  current_mood mood
+);
+
+INSERT INTO person VALUES ('Tim', 'meh');
+--enums provide type safety--
+--and save us some headaches--
+
+--Geometric Types--
+=two-dimensional spatial objects
+
+point
+line    infinite line
+lseg    finite line segment
+box     rectangular box
+path    closed path (), open path []
+polygon
+circle
+
+--plain text, XML, JSON (JavaScript Object Notation).
+
+--to produce a value of type XML
+--from character data, use function xmlparse:
+XMLPARSE({DOCUMENT | CONTENT } value)
+
+--JSON Primitive types &
+--corresponding PostgreSQL types
+String -> text
+number -> numeric
+boolean -> boolean
+null -> (none)
+
+--Arrays--
+CREATE TABLE salary_for_emps (
+  name text,
+  pay_by_quarter integer[],
+  schedule text[3][3]
+);
+
+--accessing arrays--
+SELECT name FROM salary_for_emps
+WHERE pay_by_quarter[1];
+
+--return--
+name
+------
+Carol
+(1 row)
+
+SELECT pay_by_quarter[3] FROM salary_for_emps;
+
+--return--
+pay_by_quarter
+--------------
+        10000
+        25000
+(2 rows)
+
+--searching in arrays--
+SELECT * FROM salary_for_emps pay_by_quarter[1]=10000 OR
+                              pay_by_quarter[2]=10000 OR
+                              pay_by_quarter[3]=10000 OR
+                              pay_by_quarter[4]=10000;
