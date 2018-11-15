@@ -24,3 +24,9 @@ hs_err_pid*
 
 # DataSource Properties
 datasource.properties
+
+#Eclipse files
+**/.metadata
+**/Servers
+**/.recommenders
+*/**/.settings
