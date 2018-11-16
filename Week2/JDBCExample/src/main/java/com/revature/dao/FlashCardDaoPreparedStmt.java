@@ -1,6 +1,7 @@
 package com.revature.dao;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -9,9 +10,10 @@ import java.util.List;
 import com.revature.pojos.FlashCard;
 import com.revature.util.ConnectionFactory;
 
-public class FlashCardDaoPostgres implements FlashCardDao {
+public class FlashCardDaoPreparedStmt implements FlashCardDao {
 
-	private static Connection conn = ConnectionFactory.getConnectionFactory().createConnection(); 
+	private static Connection conn = ConnectionFactory
+			.getConnectionFactory().createConnection(); 
 	
 	@Override
 	public void createFlashCard(FlashCard fc) {
@@ -37,11 +39,13 @@ public class FlashCardDaoPostgres implements FlashCardDao {
 	@Override
 	public void updateFlashCard(FlashCard fc) {
 		
-		String sql = "update flash_card set answer = '"
-				+ fc.getAnswer() + "' where question = '" + fc.getQuestion() + "'";
+		String sql = "update flash_card set answer = ? where question = ?";
 		
 		try {
-			conn.createStatement().executeUpdate(sql);
+			PreparedStatement preparedStmt = conn.prepareStatement(sql);
+			preparedStmt.setString(1, fc.getAnswer());
+			preparedStmt.setString(2, fc.getQuestion());
+			preparedStmt.executeUpdate();
 		} catch (SQLException e) {
 			System.out.println("Failed to update flash card");
 			e.printStackTrace();
@@ -70,5 +74,6 @@ public class FlashCardDaoPostgres implements FlashCardDao {
 		}
 		return fcList;
 	}
+
 
 }
