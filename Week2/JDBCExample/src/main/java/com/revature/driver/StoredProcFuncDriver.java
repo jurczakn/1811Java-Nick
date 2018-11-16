@@ -2,6 +2,7 @@ package com.revature.driver;
 
 import java.sql.CallableStatement;
 import java.sql.Connection;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import com.revature.util.ConnectionFactory;
@@ -29,6 +30,30 @@ public class StoredProcFuncDriver {
 		}
 		
 		
+		
+		String sql2 = "{call get_emps(?)}";
+		
+		try {
+			conn.setAutoCommit(false);
+			CallableStatement cstmt = conn.prepareCall(sql2);
+			cstmt.setInt(1, 8);
+			ResultSet rs = cstmt.executeQuery();
+			rs.next();
+			//System.out.println(rs.getObject(1));
+			Object rs2 = rs.getObject(1);
+			if (rs2 instanceof ResultSet){
+				while (((ResultSet)rs2).next()){
+					System.out.println("FName: " + ((ResultSet)rs2).getString(2));
+					System.out.println("LName: " + ((ResultSet)rs2).getString(1));
+				}
+			}
+			else {
+				System.out.println("not a result set");
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
 	}
 
