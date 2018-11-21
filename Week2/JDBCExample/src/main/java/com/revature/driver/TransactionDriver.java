@@ -39,7 +39,11 @@ public class TransactionDriver {
 			}
 			e.printStackTrace();
 		} finally {
-			conn.close();
+			try {
+				conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
 		}
 		
 	}
