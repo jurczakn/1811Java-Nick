@@ -1,17 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
   <display-name>ServletExample</display-name>
-  
-  <!-- Set up servlet context shared by all servlets -->
   <context-param>
-  	<param-name>company</param-name>
-  	<param-value>Revature</param-value>
+    <param-name>company</param-name>
+    <param-value>Revature</param-value>
   </context-param>
   <context-param>
-  	<param-name>department</param-name>
-  	<param-value>IT</param-value>
+    <param-name>department</param-name>
+    <param-value>IT</param-value>
   </context-param>
-  
   <servlet>
     <servlet-name>myServlet</servlet-name>
     <servlet-class>com.revature.servlet.HelloWorldServlet</servlet-class>
@@ -20,7 +17,6 @@
     <servlet-name>myServlet</servlet-name>
     <url-pattern>/hello</url-pattern>
   </servlet-mapping>
-  
   <servlet>
     <servlet-name>lifecycleServlet</servlet-name>
     <servlet-class>com.revature.servlet.LifeCycleServlet</servlet-class>
@@ -30,7 +26,6 @@
     <servlet-name>lifecycleServlet</servlet-name>
     <url-pattern>/life</url-pattern>
   </servlet-mapping>
-  
   <servlet>
     <servlet-name>loginServlet</servlet-name>
     <servlet-class>com.revature.servlet.LoginServlet</servlet-class>
@@ -39,7 +34,6 @@
     <servlet-name>loginServlet</servlet-name>
     <url-pattern>/login</url-pattern>
   </servlet-mapping>
-  
   <servlet>
     <servlet-name>homeServlet</servlet-name>
     <servlet-class>com.revature.servlet.HomeServlet</servlet-class>
@@ -48,44 +42,51 @@
     <servlet-name>homeServlet</servlet-name>
     <url-pattern>/home</url-pattern>
   </servlet-mapping>
-  
   <servlet>
     <description></description>
     <display-name>employeeServlet</display-name>
     <servlet-name>employeeServlet</servlet-name>
     <servlet-class>com.revature.servlet.ConfigServlet</servlet-class>
-    <!-- Set up servlet config for employee servlet -->
     <init-param>
-    	<param-name>type</param-name>
-    	<param-value>employee</param-value>
+      <param-name>type</param-name>
+      <param-value>employee</param-value>
     </init-param>
     <init-param>
-    	<param-name>permissions</param-name>
-    	<param-value>your info</param-value>
+      <param-name>permissions</param-name>
+      <param-value>your info</param-value>
     </init-param>
   </servlet>
   <servlet-mapping>
     <servlet-name>employeeServlet</servlet-name>
     <url-pattern>/empHome</url-pattern>
   </servlet-mapping>
-  
   <servlet>
     <description></description>
     <display-name>managerServlet</display-name>
     <servlet-name>managerServlet</servlet-name>
     <servlet-class>com.revature.servlet.ConfigServlet</servlet-class>
-    <!-- Set up servlet config for manager servlet -->
     <init-param>
-    	<param-name>type</param-name>
-    	<param-value>manager</param-value>
+      <param-name>type</param-name>
+      <param-value>manager</param-value>
     </init-param>
     <init-param>
-    	<param-name>permissions</param-name>
-    	<param-value>your info and your employees info</param-value>
+      <param-name>permissions</param-name>
+      <param-value>your info and your employees info</param-value>
     </init-param>
   </servlet>
   <servlet-mapping>
     <servlet-name>managerServlet</servlet-name>
     <url-pattern>/manHome</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>UserServlet</display-name>
+    <servlet-name>UserServlet</servlet-name>
+    <servlet-class>com.revature.servlet.UserServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UserServlet</servlet-name>
+    <url-pattern>/api/user</url-pattern>
+    <url-pattern>/api/user/*</url-pattern>
   </servlet-mapping>
 </web-app>

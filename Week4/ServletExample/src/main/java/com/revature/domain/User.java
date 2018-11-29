@@ -65,6 +65,12 @@ public class User {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+	
+	public User(String username, String fname, String lname){
+		this.username = username;
+		this.fname = fname;
+		this.lname = lname;
+	}
 
 	@Override
 	public String toString() {

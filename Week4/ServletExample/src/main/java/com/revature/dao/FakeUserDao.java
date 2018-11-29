@@ -1,5 +1,7 @@
 package com.revature.dao;
 
+import java.util.List;
+
 import com.revature.domain.User;
 
 public class FakeUserDao implements UserDao {
@@ -14,6 +16,26 @@ public class FakeUserDao implements UserDao {
 			ret.setNumberOfLegs(2);
 			return ret;
 		}
+		return null;
+	}
+
+	public void updateUser(User user) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void createUser(User user) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void deleteUser(User user) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public List<User> getAllUsers() {
+		// TODO Auto-generated method stub
 		return null;
 	}
 
