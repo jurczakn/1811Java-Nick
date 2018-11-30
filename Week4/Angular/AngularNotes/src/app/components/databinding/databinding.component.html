@@ -1,0 +1,90 @@
+<div>
+    <div class="panel-heading">
+        <span class="label label-default label-center">
+            {{title}} {{interpolationNotation}}
+        </span>
+    </div>
+    <div class="panel-body">
+        <div class="list-group">
+            <div class="list-group-item">
+                <span class="glyphicon glyphicon-arrow-right">
+                    Interpolation {{interpolation}}
+                </span>
+            </div>
+            <div class="list-group-item">
+                <span class="glyphicon glyphicon-arrow-right" aria-hidden="true">
+                    Used for <strong>one-way</strong> databinding to a <strong>value</strong>
+                </span>
+            </div>
+            <div class="list-group-item">
+                <span class="glyphicon glyphicon-arrow-right" aria-hidden="true">
+                    You can also <strong>evaluate</strong> using
+                    <strong>{{interpolationNotation}}</strong> interpolation
+                    as well.
+                </span>
+            </div>
+            <div class="list-group-item">
+                <span class="glyphicon glyphicon-arrow-right" aria-hidden="true">
+                    99 + 101 <strong>=</strong> {{99+101}}
+                </span>
+            </div>
+        </div>
+    </div>
+    <div class="panel-heading">
+        <span class="label label-default label-center">
+            Property Binding {{propertyBindingNotation}}
+        </span>
+    </div>
+    <div class="panel-body">
+        <div class="list-group">
+            <div class="list-group-item">
+                <span class="glyphicon glyphicon-arrow-right">
+                    Change the attributes of a node on the changes of a property.
+                </span>
+            </div>
+            <div class="list-group-item">
+                <span class="glyphicon glyphicon-arrow-right" aria-hidden="true">
+                    <div [ngStyle]='styleState' (click)="changeStyles()">
+                        Look at my style.
+                    </div>
+                </span>
+            </div>
+            <div class="list-group-item">
+                <span class="glyphicon glyphicon-arrow-right" aria-hidden="true">
+                    We can change and bind to properties of another component.
+                </span>
+            </div>
+            <div class="list-group-item">
+                <span class="glyphicon glyphicon-arrow-right" aria-hidden="true">
+                    Another form of one-way databinding.
+                </span>
+            </div>
+        </div>
+    </div>
+    <div class="panel-heading">
+        <span class="label label-default label-center">
+            Event Binding {{eventBindingNotation}}
+        </span>
+    </div>
+    <div class="panel-body">
+        <div class="list-group">
+            <div class="list-group-item">
+                <span class="glyphicon glyphicon-arrow-right">
+                    Used for event handling.
+                </span>
+            </div>
+            <div class="list-group-item">
+                <span class="glyphicon glyphicon-arrow-right" aria-hidden="true">
+                    Click the button to increment the value: {{counter}}
+                </span>
+            </div>
+            <div class="list-group-item">
+                <span class="glyphicon glyphicon-arrow-right" aria-hidden="true">
+                    <button class="btn btn-primary btn-center" (click)="addToCounter()">
+                        increment
+                    </button>    
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
