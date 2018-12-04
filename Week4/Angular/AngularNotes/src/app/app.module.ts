@@ -1,8 +1,12 @@
 // Modules
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 // Routing
 import { AppRoutingModule } from './app-routing.module';
+
+// Services
+import {LoggingService} from './services/logging.service';
 
 // Components
 import { AppComponent } from './app.component';
@@ -26,6 +30,9 @@ import { ServiceComponent } from './components/service/service.component';
 import { DatabindingComponent } from './components/databinding/databinding.component';
 import { PipesComponent } from './components/pipes/pipes.component';
 import { StructuralComponent } from './components/structural/structural.component';
+import { NewComponentComponent } from './components/new-component/new-component.component';
+import { UserServiceService } from './services/user-service.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -49,13 +56,16 @@ import { StructuralComponent } from './components/structural/structural.componen
     ServiceComponent,
     DatabindingComponent,
     PipesComponent,
-    StructuralComponent
+    StructuralComponent,
+    NewComponentComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [LoggingService, UserServiceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

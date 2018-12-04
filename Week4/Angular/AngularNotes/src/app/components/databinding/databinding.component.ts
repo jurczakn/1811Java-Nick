@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { LoggingService } from '../../services/logging.service';
 
 @Component({
   selector: 'app-databinding',
   templateUrl: './databinding.component.html',
-  styleUrls: ['./databinding.component.css']
+  styleUrls: ['./databinding.component.css'],
+  providers: [LoggingService]
 })
 export class DatabindingComponent implements OnInit {
 
@@ -17,7 +19,11 @@ export class DatabindingComponent implements OnInit {
 
   eventBindingNotation = `()`;
 
+  twoWayBindingNotation = `[()]`;
+
   counter = 0;
+
+  text = '';
 
   styleState = {
     color: `red`,
@@ -28,6 +34,8 @@ export class DatabindingComponent implements OnInit {
   };
 
   changeStyles(): void {
+
+    this.logger.info('Inside changeStyles method');
 
     if (this.styleState.color === `red`) {
 
@@ -52,10 +60,11 @@ export class DatabindingComponent implements OnInit {
   }
 
   addToCounter(): void {
+    this.logger.warn('The counter has been incremented');
     this.counter++;
   }
 
-  constructor() { }
+  constructor(private logger: LoggingService) { }
 
   ngOnInit() {
   }

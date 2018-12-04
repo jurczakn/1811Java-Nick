@@ -7,4 +7,6 @@ import { Component } from '@angular/core';
 })
 export class PipesComponent {
 
+    todaysDate = Date.now();
+
 }

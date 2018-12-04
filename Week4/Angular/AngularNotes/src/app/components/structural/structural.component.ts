@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StructuralComponent implements OnInit {
 
+  arrayOfThings = [`5 legs`, `6 legs`, `10 legs`, `no legs`, `27 legs`, `five thousand legs`];
+
   constructor() { }
 
   ngOnInit() {
