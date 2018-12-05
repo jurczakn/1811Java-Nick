@@ -12,7 +12,7 @@ public class HelloWorldServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) 
 			throws ServletException, IOException{
-		System.out.println("Hello World!!!");
+		System.out.println("Hello World!!!")
 		//Print Writer allows you to write directly to the response
 		PrintWriter writer = resp.getWriter();
 		writer.write("Hello from Get");
