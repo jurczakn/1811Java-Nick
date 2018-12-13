@@ -8,7 +8,8 @@ public class Driver {
 
 	public static void main(String[] args) {
 		LifeCycleBean lb = (LifeCycleBean) new ClassPathXmlApplicationContext("master.xml").getBean("lifeCycle");
-		System.exit(0);
+		System.out.println("Value of secret: " + lb.getSecret());
+	System.exit(0);
 	}
 	
 }
