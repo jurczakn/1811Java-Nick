@@ -1,19 +1,20 @@
 package com.revature.driver;
 
-import org.jboss.jandex.Main;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import com.revature.dao.HoneyPotDao;
+import com.revature.dao.HoneyPotRepository;
 
 public class Driver {
 	
 	public static void main(String[] args) {
-		ApplicationContext ap = new ClassPathXmlApplicationContext("beans.xml");
+		ApplicationContext ap = new ClassPathXmlApplicationContext("data.xml");
 		
-		HoneyPotDao hpDao = (HoneyPotDao) ap.getBean("honeyPotImpl");
+		HoneyPotRepository hpDao = (HoneyPotRepository) ap.getBean("honeyPotRepository");
 		
-		System.out.println(hpDao.getAllHoneyPots());
+		System.out.println(hpDao.findAll());
+		
+		System.out.println(hpDao.findByHoneypotAmount(4.0));
 	}
 	
 	

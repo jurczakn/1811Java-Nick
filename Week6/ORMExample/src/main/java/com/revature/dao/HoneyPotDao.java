@@ -1,4 +1,4 @@
-package com.revature.dao;
+/*package com.revature.dao;
 
 import java.util.List;
 
@@ -11,3 +11,4 @@ public interface HoneyPotDao {
 	public HoneyPot getHoneyPotById(Integer id);
 
 }
+*/
