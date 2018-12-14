@@ -5,7 +5,7 @@ import { User } from '../types/user';
 @Injectable()
 export class UserServiceService {
 
-  readonly url = `http://localhost:8080/ServletExample/api/user/`;
+  readonly url = `http://localhost:8080/MVCExample/user/`;
 
   constructor(private http: HttpClient) { }
 
