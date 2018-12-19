@@ -1,0 +1,16 @@
+<div class="container border">
+  <ul class="list-group">
+    <li class="list-group-item" *ngFor="let g of genres">
+      {{g.genre}}
+    </li>
+  </ul>
+  <div class="row">
+    <div class="col">
+      <h5>Genre:</h5>
+    </div>
+    <div class="col">
+      <input type="text" [(ngModel)]="genre.genre" (keyup.enter)="submit()">
+    </div>
+    <button class="btn btn-primary" (click)="submit()">Submit</button>
+  </div>
+</div>
