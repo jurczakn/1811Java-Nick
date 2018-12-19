@@ -20,7 +20,8 @@ export class NewComponentComponent implements OnInit {
   }
 
   findUser() {
-    this.userService.getUser(this.username).subscribe(data => this.user = data);
+    this.userService.getUser(this.username).subscribe(
+      data => {this.user = data; console.log(data); });
   }
 
 }
