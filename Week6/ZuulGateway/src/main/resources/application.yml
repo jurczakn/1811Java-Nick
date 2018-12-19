@@ -1,0 +1,18 @@
+#Zuul Configuration
+server:
+  port: 10000
+spring:
+  application:
+    name: zuul
+    
+#Local Routes
+zuul:
+  routes:
+    motorcycle:
+      url: http://localhost:10001
+      path: /motorcycle/**
+      strip-prefix: false
+    penguin:
+      url: http://localhost:10002
+      path: /penguin/**
+      strip-prefix: false
