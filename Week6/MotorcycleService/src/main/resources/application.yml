@@ -14,3 +14,7 @@ spring:
     show-sql: true
     hibernate:
       ddl-auto: create
+eureka:
+  client:
+    service-url:
+      default-zone: ${EUREKA_HOME}

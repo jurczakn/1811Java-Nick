@@ -4,15 +4,30 @@ server:
 spring:
   application:
     name: zuul
-    
-#Local Routes
+   
 zuul:
   routes:
     motorcycle:
-      url: http://localhost:10001
+      service-id: motorcycle
       path: /motorcycle/**
       strip-prefix: false
     penguin:
-      url: http://localhost:10002
+      service-id: example-spring-boot-application
       path: /penguin/**
-      strip-prefix: false
+      strip-prefix: false 
+      
+eureka:
+  client:
+    service-url:
+      default-zone: ${EUREKA_HOME}
+#Local Routes
+#zuul:
+#  routes:
+#    motorcycle:
+#      url: http://localhost:10001
+#      path: /motorcycle/**
+#      strip-prefix: false
+#    penguin:
+#      url: http://localhost:10002
+#      path: /penguin/**
+#      strip-prefix: false
