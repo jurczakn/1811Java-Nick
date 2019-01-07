@@ -1,0 +1,4 @@
+applications:
+  - name: motorcycle-service-nick-rev
+    memory: 1G
+    path: target/MotorcycleService-0.0.1-SNAPSHOT.jar

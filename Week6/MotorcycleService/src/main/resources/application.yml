@@ -4,9 +4,12 @@ spring:
   application:
     name: motorcycle
   datasource:
-    url: jdbc:postgresql://rev1811java-nick-db.cjteoptiiwyx.ca-central-1.rds.amazonaws.com:5432/postgres?
-    password: ${1811_postgres_password}
-    username: ${1811_postgres_username}
+    hikari:
+      maximum-pool-size: 2
+    url: ${VCAP_SERVICES.elephantsql.[0].credentials.uri}
+ #   url: jdbc:postgresql://rev1811java-nick-db.cjteoptiiwyx.ca-central-1.rds.amazonaws.com:5432/postgres?
+ #   password: ${1811_postgres_password}
+ #   username: ${1811_postgres_username}
     driver-class-name: org.postgresql.Driver
     platform: postgresql
   jpa:
@@ -14,7 +17,7 @@ spring:
     show-sql: true
     hibernate:
       ddl-auto: create
-eureka:
-  client:
-    service-url:
-      default-zone: ${EUREKA_HOME}
+#eureka:
+#  client:
+#    service-url:
+#      default-zone: ${EUREKA_HOME}
